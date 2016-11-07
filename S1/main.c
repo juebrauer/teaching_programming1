@@ -67,7 +67,7 @@ int main()
                break;
             }
             printf("%c ", c);
-            digit=(double)c-48.0;
+            digit=c-48;
             switch (last_operator)
             {
                case '+': r += digit; break;
