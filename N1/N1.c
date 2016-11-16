@@ -1,6 +1,6 @@
 #include <stdio.h>   // for the printf(), scanf() command
 #include <conio.h>   // for the _getch() command
-
+//#include <string.h>
 
 int main()
 {
