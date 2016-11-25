@@ -117,9 +117,26 @@ void user_input()
 {
    if (_kbhit())
    {
-      char c = _getch();
+      char c1 = _getch();
 
-      char c2 = _getch();
+      if (c1 == -32)
+      {
+         char c2 = _getch();
+
+         myPacMan.vx = 0;
+         myPacMan.vy = 0;
+
+         switch (c2)
+         {
+            case 72: myPacMan.vy = -1; break; // cursor up
+            case 80: myPacMan.vy = +1; break; // cursor down
+            case 75: myPacMan.vx = -1; break; // cursor left
+            case 77: myPacMan.vx = +1; break; // cursor right            
+         }
+      }
+      
+
+      //printf("c1=%d c2=%d\n", c1, c2);
       
    }
 }
@@ -127,7 +144,15 @@ void user_input()
 
 void move_figures()
 {
+   // 1. delete PacMan from old position
+   playfield[myPacMan.position.y][myPacMan.position.x] = ' ';
 
+   // 2. move PacMan according to last set velocity vector
+   myPacMan.position.x += myPacMan.vx;
+   myPacMan.position.y += myPacMan.vy;
+
+   // 3. put PacMan back again to playfield
+   playfield[myPacMan.position.y][myPacMan.position.x] = '@';
 }
 
 
