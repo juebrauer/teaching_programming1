@@ -1,4 +1,4 @@
-///
+﻿///
 /// PacMan.c
 ///   Live programming project during lecture in
 ///   Winter semester 2016/2017
@@ -23,7 +23,7 @@
 ///  - and last but not least: it's fun! =)
 ///
 /// ---
-/// Prof. Dr.-Ing. J�rgen Brauer
+/// Prof. Dr.-Ing. Jürgen Brauer
 ///
 
 #include <stdio.h> // printf()
@@ -33,6 +33,7 @@
 
 #define H 30
 #define W 60
+#define NR_GHOSTS 5
 
 struct coord
 {
@@ -46,7 +47,19 @@ struct PacMan {
    int vy;
    int lives;
    bool chasing;
+   int food_collected;
 };
+
+
+struct Ghost {
+   struct coord position;
+   int vx;
+   int vy;
+   bool chasing;
+};
+
+
+struct Ghost allGhosts[NR_GHOSTS];
 
 struct PacMan myPacMan = {
                            {
@@ -56,7 +69,8 @@ struct PacMan myPacMan = {
                            .vx = 0,
                            .vy = 0,
                            .lives = 3,
-                           .chasing = false
+                           .chasing = false,
+                           .food_collected = 0
                          };
 
 char playfield[H][W] =
@@ -107,7 +121,26 @@ void initialize()
       }
    }
 
-   // 2. set start position of PacMan
+   // 2. initialize all ghosts
+   for (int i = 0; i < NR_GHOSTS; i++)
+   {
+      allGhosts[i].vx = 0;
+      allGhosts[i].vy = 0;
+      allGhosts[i].chasing = true;
+
+      // try to find a (x,y) coordinate randomly where a food piece is
+      int x,y;
+      do
+      {
+         x = 1 + rand() % (W-1);
+         y = 1 + rand() % (H-1);
+     
+      } while (playfield[y][x] != '.');
+      allGhosts[i].position.x = x;
+      allGhosts[i].position.y = y;
+      playfield[y][x] = '\1';
+
+   }
   
 
 } // initialize
@@ -147,12 +180,32 @@ void move_figures()
    // 1. delete PacMan from old position
    playfield[myPacMan.position.y][myPacMan.position.x] = ' ';
 
-   // 2. move PacMan according to last set velocity vector
+   // 2. compute new desired coordinate (nx,ny)
+   int nx = myPacMan.vx + myPacMan.position.x;
+   int ny = myPacMan.vy + myPacMan.position.y;
+
+   // 3. test whether there is a wall at (nx,ny)  
+   if (playfield[ny][nx] == '#')
+   {
+      // Damn! There is a wall! Stop PacMan!
+      myPacMan.vx = 0;
+      myPacMan.vy = 0;
+   }
+
+   // 4. update PacMan's coordinate
    myPacMan.position.x += myPacMan.vx;
    myPacMan.position.y += myPacMan.vy;
 
-   // 3. put PacMan back again to playfield
-   playfield[myPacMan.position.y][myPacMan.position.x] = '@';
+   // 5. is there a food piece at the new location?
+   if (playfield[ny][nx] == '.')
+   {
+      myPacMan.food_collected++;
+   }
+
+   // 6. put PacMan back again to playfield
+   playfield[myPacMan.position.y][myPacMan.position.x] = '\2';
+
+   
 }
 
 
@@ -172,6 +225,8 @@ void show_playfield()
       }
       printf("\n");
    }
+
+   printf("Score: %d\n", myPacMan.food_collected);
 }
 
 
@@ -199,6 +254,22 @@ void hidecursor()
 
 int main()
 {
+   // set console to code page 437 https://en.wikipedia.org/wiki/Code_page_437
+   // and set font to "raster font"
+   /*
+   system("chcp 437");
+   for (int i=0; i<255; i++)
+   {
+      printf("%c", i);
+      if (i%25==0) printf("\n");
+   }
+   _getch();
+   */
+   
+   system("cls");
+   
+
+
    hidecursor();
    initialize();
 
