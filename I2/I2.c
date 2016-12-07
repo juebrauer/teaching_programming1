@@ -50,14 +50,19 @@ int main()
       char* errptr1;
       double d = strtod(line, &errptr1);
       printf("Number #%d: %.5f\n", counter, d);
-      if (strcmp(errptr1, "") == 0)      
+
+      // if the only thing from line that cannot be converted to a double
+      // by strtod() is the newline character \n and the null termination
+      // character \0, then everything was ok!
+      if (strcmp(errptr1, "\n") == 0)      
+      {
+         A[counter] = d;
+      }
+      else
       {
          printf("Error: some characters of the string could not be converted!\n");
          _getch();
-         exit(1);
-      }
-      else
-         A[counter]=d;
+      }         
       counter++;
    }
 
