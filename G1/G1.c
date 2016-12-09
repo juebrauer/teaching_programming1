@@ -1,7 +1,7 @@
 #include <stdio.h> // for the printf(), scanf() command
 #include <conio.h> // for the _getch() command
 
-int main()
+main()
 {
    int n1,n2,n3;
 

@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "I2", "I2\I2.vcxproj", "{86F
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O1", "O1\O1.vcxproj", "{564D8E90-DD22-4DAA-B3CE-B87DA34AD126}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EcosystemSimulator", "EcosystemSimulator\EcosystemSimulator.vcxproj", "{55EE52C8-3B28-4F6E-A824-0C86F3529C23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -261,6 +263,14 @@ Global
 		{564D8E90-DD22-4DAA-B3CE-B87DA34AD126}.Release|x64.Build.0 = Release|x64
 		{564D8E90-DD22-4DAA-B3CE-B87DA34AD126}.Release|x86.ActiveCfg = Release|Win32
 		{564D8E90-DD22-4DAA-B3CE-B87DA34AD126}.Release|x86.Build.0 = Release|Win32
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Debug|x64.ActiveCfg = Debug|x64
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Debug|x64.Build.0 = Debug|x64
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Debug|x86.ActiveCfg = Debug|Win32
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Debug|x86.Build.0 = Debug|Win32
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x64.ActiveCfg = Release|x64
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x64.Build.0 = Release|x64
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x86.ActiveCfg = Release|Win32
+		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
