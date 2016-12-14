@@ -55,6 +55,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O1", "O1\O1.vcxproj", "{564
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EcosystemSimulator", "EcosystemSimulator\EcosystemSimulator.vcxproj", "{55EE52C8-3B28-4F6E-A824-0C86F3529C23}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O1b", "O1b\O1b.vcxproj", "{CF8F7A00-1988-477E-9DEE-4DA944E74C92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -271,6 +273,14 @@ Global
 		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x64.Build.0 = Release|x64
 		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x86.ActiveCfg = Release|Win32
 		{55EE52C8-3B28-4F6E-A824-0C86F3529C23}.Release|x86.Build.0 = Release|Win32
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Debug|x64.ActiveCfg = Debug|x64
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Debug|x64.Build.0 = Debug|x64
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Debug|x86.ActiveCfg = Debug|Win32
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Debug|x86.Build.0 = Debug|Win32
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Release|x64.ActiveCfg = Release|x64
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Release|x64.Build.0 = Release|x64
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Release|x86.ActiveCfg = Release|Win32
+		{CF8F7A00-1988-477E-9DEE-4DA944E74C92}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
