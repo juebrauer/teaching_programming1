@@ -110,10 +110,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="AnimalA.cpp" />
+    <ClCompile Include="AnimalB.cpp" />
     <ClCompile Include="EcosystemSimulator.cpp" />
     <ClCompile Include="Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="AnimalA.h" />
+    <ClInclude Include="AnimalB.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="Simulator.h" />
   </ItemGroup>

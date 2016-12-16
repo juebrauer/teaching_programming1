@@ -1,9 +1,12 @@
 #pragma once
+#include <vector>
+#include "AnimalA.h"
+#include "AnimalB.h"
 
 class Simulator
 {
 public:
-            Simulator(int w, int h);
+            Simulator(int w, int h, int nr_animalsA, int nr_animalsB);
             ~Simulator();
    
    void     simulate_one_step();
@@ -12,9 +15,11 @@ public:
 
 
 private:
-   int          width;
-   int          height;
-   char**       world;
+   int                    width;
+   int                    height;
+   char**                 world;
+   std::vector<Animal*>  all_animals;
+
 
    void         init();
 };

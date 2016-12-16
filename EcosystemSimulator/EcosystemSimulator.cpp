@@ -7,11 +7,14 @@
 
 int main()
 {
-   Simulator s1(50, 20);
+   system("chcp 437");
 
-   s1.simulate_one_step();
+   Simulator s1(50, 20, 5, 3);
 
-   s1.show_world();
-    
-   _getch();
+   do
+   {
+      s1.simulate_one_step();
+      s1.show_world();
+      _getch();
+   } while (1);
 }
