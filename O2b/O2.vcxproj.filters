@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Base class">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Santa Claus">
+      <UniqueIdentifier>{6fb7ecd9-f33f-4e29-a99f-cc08b30344c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Present">
+      <UniqueIdentifier>{50fd1ea4-0db8-404a-8f03-f78127bc82c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{83321fd6-2687-4c4f-bef0-75a501ea0970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Child">
+      <UniqueIdentifier>{6f29e30f-103d-430c-8c54-43445312fda7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="O2.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="xmas_object.cpp">
+      <Filter>Base class</Filter>
+    </ClCompile>
+    <ClCompile Include="SantaClaus.cpp">
+      <Filter>Santa Claus</Filter>
+    </ClCompile>
+    <ClCompile Include="Present.cpp">
+      <Filter>Present</Filter>
+    </ClCompile>
+    <ClCompile Include="child.cpp">
+      <Filter>Child</Filter>
+    </ClCompile>
+    <ClCompile Include="XmasTree.cpp">
+      <Filter>Tree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="xmas_object.h">
+      <Filter>Base class</Filter>
+    </ClInclude>
+    <ClInclude Include="SantaClaus.h">
+      <Filter>Santa Claus</Filter>
+    </ClInclude>
+    <ClInclude Include="Present.h">
+      <Filter>Present</Filter>
+    </ClInclude>
+    <ClInclude Include="child.h">
+      <Filter>Child</Filter>
+    </ClInclude>
+    <ClInclude Include="XmasTree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>
