@@ -5,7 +5,7 @@
 void set_cursor_position(int x, int y)
 {
    //Initialize the coordinates
-   COORD coord = { x, y };
+   COORD coord = { (short)x, (short)y };
    //Set the position
    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 

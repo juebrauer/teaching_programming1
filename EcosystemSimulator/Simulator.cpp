@@ -66,7 +66,7 @@ Simulator::~Simulator()
 
 void Simulator::simulate_one_step()
 {
-   for (int i = 0; i < all_animals.size(); i++)
+   for (unsigned int i = 0; i < all_animals.size(); i++)
    {
       // get pointer to i-th animal
       Animal* ptr = all_animals[i];
@@ -88,7 +88,7 @@ void Simulator::show_world()
    }
 
    // draw all animals
-   for (int i = 0; i < all_animals.size(); i++)
+   for (unsigned int i = 0; i < all_animals.size(); i++)
    {
       // get pointer to i-th animal
       Animal* ptr = all_animals[i];

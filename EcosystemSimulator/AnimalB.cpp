@@ -29,10 +29,7 @@ void AnimalB::simulate()
    x += vx;
    y += vy;
   
-   if (x<0) x = 0;
-   if (y<0) y = 0;
-   if (x >= wwidth) x = wwidth - 1;
-   if (y >= wheight) y = wheight - 1;
+   make_sure_that_my_coords_are_valid();
 }
 
 

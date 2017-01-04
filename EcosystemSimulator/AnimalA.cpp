@@ -16,6 +16,9 @@ AnimalA::AnimalA(int world_width,
 
 void AnimalA::simulate()
 {
+   // call method simulate() of base class
+   Animal::simulate();
+
    int rand_number = rand() % 6 + 1;
 
    // with a probability of 1/6 choose a new random
@@ -36,10 +39,7 @@ void AnimalA::simulate()
    else
       vy = 0;
 
-   if (x<0) x=0;
-   if (y<0) y=0;
-   if (x>=wwidth) x=wwidth-1;
-   if (y>=wheight) y=wheight-1;
+   make_sure_that_my_coords_are_valid();
 }
 
 

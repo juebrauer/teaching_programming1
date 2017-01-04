@@ -22,13 +22,21 @@ Animal::Animal(int world_width,
 
 char Animal::get_visual_appearance()
 {
-   return '?';
+   return '§';
+}
+
+void Animal::make_sure_that_my_coords_are_valid()
+{
+   if (x<0) x = 0;
+   if (y<0) y = 0;
+   if (x >= wwidth) x = wwidth - 1;
+   if (y >= wheight) y = wheight - 1;
 }
 
 
 void Animal::simulate()
 {
-
+   x = x + 1;
 }
 
 void Animal::set_to_pos(int newx, int newy)

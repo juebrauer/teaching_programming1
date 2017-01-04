@@ -17,6 +17,7 @@ public:
    int      getposx();
    int      getposy();
    virtual char     get_visual_appearance();
+   void make_sure_that_my_coords_are_valid();
 
 protected:
    int x;
