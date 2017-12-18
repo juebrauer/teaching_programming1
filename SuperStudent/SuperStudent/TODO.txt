@@ -1,0 +1,19 @@
+- Sprites?
+
+- Konstante für Laufgeschwindigkeit
+
+- class prof schreiben +
+  Prof von rechts nach links bewegen
+
+- gemeinsame Basisklasse person einführen und alles gemeinsame darein!
+  student und prof von Basisklasse ableiten lassen
+
+- zeigen was es für Ableitungsmöglichkeiten gibt :public, :private, :protected
+
+- zeigen wie man in der abgeleiteten Klasse etwas Spezielles implementiert
+  virtual Schlüsselwort
+
+- abstrakte Klassen
+
+
+

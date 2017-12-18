@@ -1,11 +1,19 @@
 #include <conio.h>
 #include <stdio.h>
 
+#include "opencv2/opencv.hpp"
+
+using namespace cv;
+
 struct coord2D
 {
     int x;
     int y;
 };
+
+#define WORLD_WIDTH  800
+#define WORLD_HEIGHT 800
+#define FLOOR_HEIGHT WORLD_HEIGHT-200
 
 // What is the effect of hitting an enemy?
 enum damagetype {killing, energyreduction};
@@ -23,7 +31,7 @@ class Enemy
 
         // class constructor
         Enemy()
-        {
+        {            
             printf("New enemy was generated.\n");
             position.x = 0;
             position.y = 0;
@@ -38,7 +46,12 @@ class Enemy
 
         void set_new_position(struct coord2D new_coord)
         {
-            position = new_coord;
+            if ((new_coord.x < 0) || (new_coord.y < 0))
+            {
+                printf("Wrong 2D coordinate! I will not change the coordinates!\n");
+            }
+            else
+                position = new_coord;
         }
 
         struct coord2D get_new_position()
@@ -49,30 +62,67 @@ class Enemy
 };
 
 
+class student
+{
+public:
+
+    student()
+    {
+        img = imread("pics/student.png");
+        float rfac = 0.25f;
+        resize(img, img, Size((int)(img.cols*rfac), (int)(img.rows*rfac)));
+        position.x = 50;
+        position.y = FLOOR_HEIGHT;
+    }
+
+    void update()
+    {
+        int c = waitKeyEx(0);
+        switch (c)
+        {
+            case 2424832: // cursor left
+                position.x += -5;
+                break;
+            case 2555904: // cursor right
+                position.x += +5;
+                break;
+        }
+    }
+
+    void draw_into_image(Mat world)
+    {
+        Mat dst_roi = world(Rect(position.x, position.y, img.cols, img.rows));
+        img.copyTo(dst_roi);
+    }
+
+private:
+
+    struct coord2D position;
+    Mat            img;
+
+};
+
+
+
 int main()
 {
-    Enemy* all_enemies[10];
+   
+    Mat world(WORLD_WIDTH, WORLD_HEIGHT, CV_8UC3);
+    student s1;
 
-    for (int i = 0; i < 10; i++)
-        all_enemies[i] = new Enemy;
-    
-    struct coord2D pos;
-    pos.x = 10;
-    pos.y = 15;
+    while (1)
+    {
+        // set complete world image to "white"
+        world = Scalar(255, 255, 255);
 
-    all_enemies[0]->set_new_position(pos);
+        s1.update();
 
-    printf("enemy1 is now at coordinate: (%d,%d)\n",
-        all_enemies[0]->get_new_position().x,
-        all_enemies[0]->get_new_position().y);
-        
-    _getch();
+        s1.draw_into_image(world);
 
-    for (int i = 0; i < 10; i++)
-        delete all_enemies[i];
-    
-    //enemy1->position = pos;
-    //enemy1->damageeffect = killing;
+        imshow("world", world);
+
+        waitKey(1);
+    }
 
     printf("End of program\n");
     _getch();
