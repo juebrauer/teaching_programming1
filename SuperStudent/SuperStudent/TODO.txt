@@ -1,6 +1,10 @@
-- Sprites?
+- Sprites? free Sprites: www.gameart2d.com
 
-- Konstante für Laufgeschwindigkeit
+- Alle Walking-Bilder einlesen imread(fname, IMREAD_UNCHANGED);
+
+- Walking-Bilder nutzen für Laufanimation
+
+- Links/Rechts
 
 - class prof schreiben +
   Prof von rechts nach links bewegen
