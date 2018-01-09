@@ -1,5 +1,6 @@
 #include <conio.h>
 #include <stdio.h>
+#include <vector>
 
 #include "opencv2/opencv.hpp"
 
@@ -7,6 +8,7 @@ using namespace cv;
 using namespace std;
 
 #define MAX_NR_IMAGES 100
+#define NR_ENEMIES_AT_START 2
 
 enum WalkingDirections {left, right};
 
@@ -114,7 +116,7 @@ class Subject
         overlayImage(world, sprite, world, Point2i(position.x, position.y));
     }
 
-    void update()
+    virtual void update()
     {
         WalkCycleImgNr++;
         if (WalkCycleImgNr == NrWalkCycleImages)
@@ -231,25 +233,33 @@ int main()
    
     Mat world(WORLD_WIDTH, WORLD_HEIGHT, CV_8UC3);
 
-
+    vector<Subject*> all_subjects;
 
     student* s1 = new student();
-    enemy* e1 = new enemy();
-    enemy* e2 = new enemy();
+    all_subjects.push_back(s1);
 
+    for (int i = 0; i < NR_ENEMIES_AT_START; i++)
+    {
+        enemy* e;
+        e = new enemy();
+        printf("Enemy %d is stored at memory location: %p\n",
+            i, e);
+        all_subjects.push_back(e);
+    }
+    
     while (1)
     {
         // set complete world image to "white"
         world = Scalar(255, 255, 255);
 
-        s1->update();
-        e1->update();
-        e2->update();
 
-        s1->draw_into_image(world);
-        e1->draw_into_image(world);
-        e2->draw_into_image(world);
-
+        //vector<Subject*>::iterator it;        
+        for (auto it = all_subjects.begin(); it != all_subjects.end(); it++)
+        {
+            Subject* obj = *it;
+            obj->update();
+            obj->draw_into_image(world);
+        }
         imshow("world", world);
 
         waitKey(1);
