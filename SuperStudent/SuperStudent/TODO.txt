@@ -9,15 +9,23 @@
 - class prof schreiben +
   Prof von rechts nach links bewegen
 
-- gemeinsame Basisklasse person einführen und alles gemeinsame darein!
-  student und prof von Basisklasse ableiten lassen
+- gemeinsame Basisklasse Subject einführen und alles gemeinsame darein!
+  student und enemy von Basisklasse ableiten lassen
 
-- zeigen was es für Ableitungsmöglichkeiten gibt :public, :private, :protected
+----
+
+- class enemy: Roboter soll rumlaufen (ohne Tastatureingabe durch Spieler)
 
 - zeigen wie man in der abgeleiteten Klasse etwas Spezielles implementiert
   virtual Schlüsselwort
 
 - abstrakte Klassen
+
+- Roboter schießt: neue Klasse laser_beam
+
+- alle Klassen jeweils in eigene Dateien
+
+- wenn Laserstrahl SantaClaus trifft soll SantaClaus explodieren
 
 
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SuperStudent", "SuperStudent\SuperStudent.vcxproj", "{8616FB06-3588-4AC7-BA30-6B7201D3CC11}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x64.Build.0 = Release|x64
 		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x86.ActiveCfg = Release|Win32
 		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x86.Build.0 = Release|Win32
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Debug|x64.ActiveCfg = Debug|x64
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Debug|x64.Build.0 = Debug|x64
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Debug|x86.ActiveCfg = Debug|Win32
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Debug|x86.Build.0 = Debug|Win32
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Release|x64.ActiveCfg = Release|x64
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Release|x64.Build.0 = Release|x64
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Release|x86.ActiveCfg = Release|Win32
+		{E8786F4A-3B43-4D81-ABE1-5AC6F9B3A66B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

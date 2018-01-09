@@ -6,7 +6,7 @@
 using namespace cv;
 using namespace std;
 
-#define NrWalkCycleImages 10
+#define MAX_NR_IMAGES 100
 
 enum WalkingDirections {left, right};
 
@@ -71,7 +71,7 @@ void overlayImage(const cv::Mat &background, const cv::Mat &foreground,
             }
         }
     }
-}
+} // overlayImage
 
 
 class Subject
@@ -79,8 +79,10 @@ class Subject
 
     public:
     
-    Subject(string prefix)
+    Subject(int nr_images, string prefix)
     {
+        NrWalkCycleImages = nr_images;
+
         float rfac = 0.25f;
         for (int i = 1; i <= NrWalkCycleImages; i++)
         {
@@ -95,103 +97,13 @@ class Subject
 
             resize(img[i - 1], img[i - 1],
                 Size((int)(img[i - 1].cols*rfac),
-                (int)(img[i - 1].rows*rfac)));
+                     (int)(img[i - 1].rows*rfac)));
         }
     }
 
-    protected:
-
-    struct coord2D              position;
-    Mat                         img[NrWalkCycleImages];
-
-};
-
-
-class Enemy : public Subject
-{
-    private:
-    
-        enum damagetype damageeffect;
-
-    public:
-
-        // class constructor
-        Enemy() : Subject("robot/Run")
-        {            
-            printf("New enemy was generated.\n");
-            position.x = 0;
-            position.y = 0;
-            damageeffect = killing;
-        }
-
-        // class destructor
-        ~Enemy()
-        {
-            printf("The object was deleted.\n");
-        }
-
-        void set_new_position(struct coord2D new_coord)
-        {
-            if ((new_coord.x < 0) || (new_coord.y < 0))
-            {
-                printf("Wrong 2D coordinate! I will not change the coordinates!\n");
-            }
-            else
-                position = new_coord;
-        }
-
-        struct coord2D get_new_position()
-        {
-            return position;
-        }
-
-};
-
-
-class student : public Subject
-{
-public:
-
-    student() : Subject("santaclaus/Walk")
-    {  
-        position.x = 50;
-        position.y = FLOOR_HEIGHT;
-
-        WalkCycleImgNr = 0;
-        WalkDir = WalkingDirections::right;
-    }
-
-    void update()
-    {
-        int c = waitKeyEx(0);
-        switch (c)
-        {
-            case 2424832: // cursor left
-                position.x += -5;              
-                WalkDir = WalkingDirections::left;
-                break;
-            case 2555904: // cursor right
-                position.x += +5;       
-                WalkDir = WalkingDirections::right;
-                break;
-        }
-
-        WalkCycleImgNr++;
-
-        /*
-        if (WalkCycleImgNr == -1)
-            WalkCycleImgNr = NrWalkCycleImages - 1;
-        */
-
-        if (WalkCycleImgNr == NrWalkCycleImages)
-            WalkCycleImgNr = 0;
-    }
 
     void draw_into_image(Mat world)
     {
-        //Mat dst_roi = world(Rect(position.x, position.y, img[0].cols, img[0].rows));
-        //img[0].copyTo(dst_roi);
-
         Mat sprite;
         if (WalkDir == WalkingDirections::right)
             sprite = img[WalkCycleImgNr];
@@ -199,17 +111,118 @@ public:
         {
             cv::flip(img[WalkCycleImgNr], sprite, 1);
         }
-
-
         overlayImage(world, sprite, world, Point2i(position.x, position.y));
     }
 
-private:
-    
+    void update()
+    {
+        WalkCycleImgNr++;
+        if (WalkCycleImgNr == NrWalkCycleImages)
+            WalkCycleImgNr = 0;
+    }
+
+    protected:
+
+    struct coord2D              position;
+    Mat                         img[MAX_NR_IMAGES];
     int                         WalkCycleImgNr;
     enum WalkingDirections      WalkDir;
+    int                         NrWalkCycleImages;
+    int                         WalkSpeed;
 
-};
+}; // class Subject
+
+
+class enemy : public Subject
+{
+    private:
+    
+        enum damagetype damageeffect;
+
+
+    public:
+
+        // class constructor
+        enemy() : Subject(8, "robot/Run")
+        {            
+            printf("New enemy was generated.\n");
+            position.x = WORLD_WIDTH/2 + rand() % (WORLD_WIDTH/2);
+            position.y = FLOOR_HEIGHT;
+            damageeffect = killing;
+            WalkSpeed = 1 + rand() % 10;
+
+            WalkCycleImgNr = 0;
+            WalkDir = WalkingDirections::left;
+        }
+
+        // class destructor
+        ~enemy()
+        {
+            printf("The object was deleted.\n");
+        }
+
+        void update()
+        {
+            if (WalkDir == WalkingDirections::left)
+                position.x -= WalkSpeed;
+            else
+            if (WalkDir == WalkingDirections::right)
+                position.x += WalkSpeed;
+
+            if (position.x <= 0)
+                WalkDir = WalkingDirections::right;
+
+            if (position.x >= WORLD_WIDTH)
+                WalkDir = WalkingDirections::left;   
+
+            Subject::update();
+        }
+
+}; // class enemy
+
+
+class student : public Subject
+{
+public:
+
+    student() : Subject(13, "santaclaus/Walk")
+    {  
+        position.x = 50;
+        position.y = FLOOR_HEIGHT;
+        WalkSpeed = 5;
+
+        WalkCycleImgNr = 0;
+        WalkDir = WalkingDirections::right;
+    }
+
+    void update()
+    {
+        int c = waitKeyEx(1);
+        bool walked = false;
+        switch (c)
+        {
+            case 2424832: // cursor left
+                position.x += -WalkSpeed;              
+                WalkDir = WalkingDirections::left;
+                walked = true;
+                break;
+            case 2555904: // cursor right
+                position.x += +WalkSpeed;
+                WalkDir = WalkingDirections::right;
+                walked = true;
+                break;
+        }
+
+        if (walked)
+            Subject::update();
+    }
+
+    
+
+private:
+
+
+}; // class student
 
 
 
@@ -217,7 +230,12 @@ int main()
 {
    
     Mat world(WORLD_WIDTH, WORLD_HEIGHT, CV_8UC3);
+
+
+
     student* s1 = new student();
+    enemy* e1 = new enemy();
+    enemy* e2 = new enemy();
 
     while (1)
     {
@@ -225,8 +243,12 @@ int main()
         world = Scalar(255, 255, 255);
 
         s1->update();
+        e1->update();
+        e2->update();
 
         s1->draw_into_image(world);
+        e1->draw_into_image(world);
+        e2->draw_into_image(world);
 
         imshow("world", world);
 
