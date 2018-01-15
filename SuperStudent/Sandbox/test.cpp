@@ -181,7 +181,7 @@ class Logger
 {
 public:
     virtual void logmsg(string s) = 0;
-    virtual void logmsg2(string s) = 0;
+    virtual void logmsg2(string s);
 };
 
 class LoggerConsole : public Logger
@@ -206,15 +206,153 @@ class LoggerFile : public Logger
     }
 };
 
+class LoggerFile1 : public LoggerFile
+{
+   
+};
+
+class Unit
+{
+public:
+    virtual void move_to(int x, int y) = 0;
+    virtual int get_current_energy() = 0;
+};
+
+
+int avg_int(int a, int b)
+{
+    int avg = (a + b) / 2;
+    return avg;
+}
+
+
+float avg_float(float a, float b)
+{
+    float avg = (a + b) / 2;
+    return avg;
+}
+
+// Example of a function template
+template<typename T>
+T avg(T a, T b)
+{
+    T avg = (a + b) / 2;
+    return avg;
+}
+
+// Example of a function template
+template<typename T1, typename T2>
+T1 avg(T1 a, T2 b)
+{
+    T1 avg = (a + b) / 2;
+    return avg;
+}
+
+
+template<typename T>
+class myvector
+{
+public:
+    myvector()
+    {
+        nr_elements = 0;
+        capacity = 5;
+        arr = (T*) malloc(capacity * sizeof(T));
+    }
+
+    void push_back(T element)
+    {
+        arr[nr_elements] = element;
+        nr_elements++;
+        check_enlarge();       
+    }
+
+    int size()
+    {
+        return nr_elements;
+    }
+
+    T get_element(int i)
+    {
+        if ((i < 0) || (i >= nr_elements))
+        {
+            printf("Error!");
+            _getch();
+        }
+        return arr[i];
+    }
+
+    void check_enlarge()
+    {
+        if (nr_elements == capacity)
+        {
+            printf("I need to enlarge the array!\n");
+            capacity += 5;
+            arr = (T*)realloc(arr, capacity * sizeof(T));
+        }
+    }
+
+    void insert(int el, int pos)
+    {
+        if (pos <= nr_elements)
+        {
+
+            nr_elements++;
+            check_enlarge();
+
+            // make space for inserting the new
+            // element <el>
+            for (int i = nr_elements - 1; i > pos; i--)
+            {
+                arr[i] = arr[i - 1];
+            }
+
+            arr[pos] = el;
+        }
+    }
+
+private:
+    int  nr_elements;
+    int  capacity;
+    T*   arr;
+};
+
 
 int main()
-{
+{  
+    printf("avg_int   = %d\n", avg_int(3, 4));
+    printf("avg_float = %f\n", avg_float(3.2, 4.7));
 
-    Logger* l = new LoggerConsole();
-    l->logmsg("Program started.\n");
+    printf("avg = %d\n", avg(3, 4));
+    printf("avg = %f\n", avg((float)3.2, 4.7));
+
+    myvector<double> v1;
+    v1.push_back(1);
+    v1.push_back(2);
+    v1.push_back(3);
+    v1.push_back(4);
+    v1.insert(5, 0);
+    v1.push_back(6);
+
+    // index:   0 1 2 3 4 5 6
+    // element: 5,1,2,3,4,6 
+
+    v1.insert(99, 5000);
+  
+    for (int i = 0; i < v1.size(); i++)
+    {
+        printf("Element #%d: %f\n", i, v1.get_element(i));
+    }
 
 
-    example_usage_vector();
+
+    //LoggerFile* l = new LoggerFile1;
+
+    //Logger* l = new LoggerConsole();
+    //l->logmsg("Program started.\n");
+
+
+    //example_usage_vector();
 
     //example_usage_set();
 
