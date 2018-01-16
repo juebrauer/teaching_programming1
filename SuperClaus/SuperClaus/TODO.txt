@@ -1,0 +1,53 @@
+- Sprites? free Sprites: www.gameart2d.com
+
+- Alle Walking-Bilder einlesen imread(fname, IMREAD_UNCHANGED);
+
+- Walking-Bilder nutzen f¸r Laufanimation
+
+- Links/Rechts
+
+- class prof schreiben +
+  Prof von rechts nach links bewegen
+
+- gemeinsame Basisklasse Subject einf¸hren und alles gemeinsame darein!
+  student und enemy von Basisklasse ableiten lassen
+
+----
+
+- class enemy: Roboter soll rumlaufen (ohne Tastatureingabe durch Spieler)
+
+- zeigen wie man in der abgeleiteten Klasse etwas Spezielles implementiert
+  virtual Schl¸sselwort
+
+- abstrakte Klassen
+
+---
+
+- Frage eines Studenten aus Vorlesung:
+  myVector Klasse: Typ der Templateklasse ausgeben mit:
+  typeid(T).name()
+
+- myvector Klasse erweitern durch [] Operator
+
+- std::vector durch myvector Klasse austauschen!
+
+- Umbenennung: student --> claus
+
+- alle Klassen jeweils in eigene Dateien
+
+- Roboter schieﬂt: neue Klasse laser_beam
+
+- wenn Laserstrahl SantaClaus trifft soll SantaClaus explodieren
+
+- Abstract Classes Quiz (auf Folien)
+
+- Keyword static
+
+- delete vs. delete[]
+
+- casts
+
+
+
+
+
