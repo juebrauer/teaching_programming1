@@ -251,77 +251,43 @@ T1 avg(T1 a, T2 b)
 
 
 template<typename T>
-class myvector
-{
+class myvector {
 public:
-    myvector()
-    {
+    myvector() {
         nr_elements = 0;
         capacity = 5;
-        arr = (T*) malloc(capacity * sizeof(T));
+        arr = (T*)malloc(capacity * sizeof(T));
     }
 
-    void push_back(T element)
-    {
+    ~myvector() {
+        free(arr);
+    }
+
+    void push_back(T element) {
         arr[nr_elements] = element;
         nr_elements++;
-        check_enlarge();       
+        check_enlarge();
     }
 
-    int size()
-    {
-        return nr_elements;
-    }
+    int size() { return nr_elements; }
 
-    T get_element(int i)
-    {
-        if ((i < 0) || (i >= nr_elements))
-        {
+    T get_element(int i) {
+        if ((i < 0) || (i >= nr_elements)) {
             printf("Error!");
             _getch();
         }
         return arr[i];
     }
 
-    void check_enlarge()
-    {
-        if (nr_elements == capacity)
-        {
+    void check_enlarge() {
+        if (nr_elements == capacity) {
             printf("I need to enlarge the array!\n");
             capacity += 5;
             arr = (T*)realloc(arr, capacity * sizeof(T));
         }
     }
-
-    void insert(int el, int pos)
-    {
-        if (pos <= nr_elements)
-        {
-
-            nr_elements++;
-            check_enlarge();
-
-            // make space for inserting the new
-            // element <el>
-            for (int i = nr_elements - 1; i > pos; i--)
-            {
-                arr[i] = arr[i - 1];
-            }
-
-            arr[pos] = el;
-        }
-    }
-
-    void show_type()
-    {
-        printf("Data type stored in this vector is %s\n",
-               typeid(T).name());        
-    }
-
-    T operator[](int idx)
-    {
-        return arr[idx];
-    }
+              
+    T operator[](int idx) { return arr[idx]; }
 
 private:
     int  nr_elements;
@@ -329,35 +295,38 @@ private:
     T*   arr;
 };
 
+class A
+{
+    virtual void foo() = 0;
+};
 
+class B : public A
+{
+    void foo() {}
+};
 
 
 int main()
 {   
-    printf("avg_int   = %d\n", avg_int(3, 4));
-    printf("avg_float = %f\n", avg_float(3.2, 4.7));
-
-    printf("avg = %d\n", avg(3, 4));
-    printf("avg = %f\n", avg((float)3.2, 4.7));
+  
 
     myvector<double> v1;
     v1.push_back(1);
     v1.push_back(2);
     v1.push_back(3);
     v1.push_back(4);
-    v1.insert(5, 0);
     v1.push_back(6);
 
     // index:   0 1 2 3 4 5 6
     // element: 5,1,2,3,4,6 
 
-    v1.insert(99, 5000);
+
   
     for (int i = 0; i < v1.size(); i++)
     {
         printf("Element #%d: %f\n", i, v1[i]);
     }
-    v1.show_type();
+    
 
 
 

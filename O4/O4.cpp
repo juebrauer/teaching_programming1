@@ -68,8 +68,8 @@ int main()
    O2.set_value(202);
    printf("value of O2 according to pointer   : %d\n", pobj->get_value());
    // we will not see 202 outputted by the following line,
-   // because above we did not reassign the reference, but copied to value
-   // of O2 to obj!
+   // because above we did not reassign the reference, but copied the value
+   // of O2 to O1!
    printf("value of O2 according to reference : %d\n", robj.get_value());
    printf("value of O1 according to reference : %d\n", O1.get_value());
    printf("\n");
