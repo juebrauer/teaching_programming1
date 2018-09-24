@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "G1", "G1\G1.vcxproj", "{B6E88769-96C8-4104-AFCE-4A70DCAF335B}"
 EndProject
@@ -68,6 +68,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O5", "O5\O5.vcxproj", "{B5295922-5BBA-4B9E-9028-DF4F48C33F64}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PacMan_OOP", "PacMan_OOP\PacMan_OOP.vcxproj", "{86585FDA-E442-44C6-AE6B-7DEEC73AF73F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SuperClaus", "SuperClaus\SuperClaus\SuperClaus.vcxproj", "{8616FB06-3588-4AC7-BA30-6B7201D3CC11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -341,8 +343,19 @@ Global
 		{86585FDA-E442-44C6-AE6B-7DEEC73AF73F}.Release|x64.Build.0 = Release|x64
 		{86585FDA-E442-44C6-AE6B-7DEEC73AF73F}.Release|x86.ActiveCfg = Release|Win32
 		{86585FDA-E442-44C6-AE6B-7DEEC73AF73F}.Release|x86.Build.0 = Release|Win32
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Debug|x64.ActiveCfg = Debug|x64
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Debug|x64.Build.0 = Debug|x64
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Debug|x86.ActiveCfg = Debug|Win32
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Debug|x86.Build.0 = Debug|Win32
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x64.ActiveCfg = Release|x64
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x64.Build.0 = Release|x64
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x86.ActiveCfg = Release|Win32
+		{8616FB06-3588-4AC7-BA30-6B7201D3CC11}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B95C2CC5-01A9-482E-9FC0-2BD1FF0A4116}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,8 @@
 How to link against OpenCV:
 ---------------------------
 
+Download OpenCV.
+
 1.
 Add an enviroment variable OPENCV_BUILD and initialize it with OPENCV_BUILD=C:\opencv\build.
 For comfortable adding and changing environment variables I personally use a tool called Rapid 
