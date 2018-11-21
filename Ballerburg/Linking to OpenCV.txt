@@ -1,0 +1,61 @@
+How to link against OpenCV:
+---------------------------
+
+Download OpenCV.
+
+1.
+Add an enviroment variable OPENCV_BUILD and initialize it with OPENCV_BUILD=C:\opencv\build.
+For comfortable adding and changing environment variables I personally use a tool called Rapid 
+Environment Editor (always start it with administrator rights).
+
+2.
+Add %OPENCV_BUILD%\x64\vc14\bin to your PATH enviroment variable. This makes sure, that
+'opencv_ffmpeg320_64.dll' (for video codecs) and 'opencv_world320.dll' (all other OpenCV functionality)
+can be found, when starting a program that needs library functions from theses .dll files.
+
+3.
+In the C/C++ project settings set additional include directories to $(OPENCV_BUILD)\include
+
+4.
+In the Linker project settings set additional library directories to $(OPENCV_BUILD)\x64\vc14\lib
+
+5.
+In the Linker project settings add 'opencv_world331d.lib' to additional dependencies
+
+6.
+Make sure that you set all these configuration settings for the Release/x64 configuration
+in the project settings dialog and that you work in the following under this configuration.
+
+7. Test whether everything works with this simple program:
+
+---
+#include "opencv2/opencv.hpp"
+#include <conio.h>
+ 
+using namespace cv;
+using namespace std;
+ 
+ 
+int main()
+{
+   string videofilename = "C:\\videos\\dancing_pair.mp4";
+ 
+   VideoCapture cap(videofilename);
+   if (!cap.isOpened()) {
+      printf("Error! Could not open video file %s\n", videofilename.c_str());
+      _getch();
+      return -1;
+   }
+ 
+   while (true)
+   {      
+      Mat frame;
+      cap >> frame;
+      int width = frame.cols;
+      int height = frame.rows;
+      resize(frame, frame, Size(width / 3, height / 3));
+      imshow("video frame", frame);
+      waitKey(0);
+   }
+}
+---
