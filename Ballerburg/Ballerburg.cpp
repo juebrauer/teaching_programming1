@@ -4,33 +4,41 @@
 using namespace cv;
 using namespace std;
 
+#define PLAYFIELD_WIDTH 800
+#define PLAYFIELD_HEIGHT 800
+
+void draw_line(Mat frame, Point p1, Point p2)
+{
+   float epsilon = 0.001f;
+   Point dirVec = p2 - p1;
+   for (float pos = 0.0; pos <= 1.0; pos += epsilon)
+   {
+      Point p = p1 + pos * dirVec;
+      frame.at<Vec3b>(p) = Vec3b(0, 0, 255);
+   }
+}
+
 
 int main()
 {   
-   Mat frame(800,800, CV_8UC3);
+   Mat frame(PLAYFIELD_HEIGHT, PLAYFIELD_WIDTH, CV_8UC3);
   
 
-  
-   Point p1(10, 10);
-   Point p2(750, 150);
-
-   frame.at<Vec3b>(p1) = Vec3b(0, 255, 0);
-   frame.at<Vec3b>(p2) = Vec3b(255, 0, 0);
-
-   int dist_x = p2.x - p1.x;
-   int dist_y = p2.y - p1.y;
-   int rel_xy = (int)(dist_y / dist_x);
-
-   for (int i = 0; i <= p2.x - p1.x; i++)
+   for (int i = 1; i < 1000; i++)
    {
-      Point p(p1.x + i, p1.y+rel_xy*i);
-      frame.at<Vec3b>(p) = Vec3b(0, 0, 255);
+      Point p1(rand() % PLAYFIELD_WIDTH, rand() % PLAYFIELD_HEIGHT);
+      Point p2(rand() % PLAYFIELD_WIDTH, rand() % PLAYFIELD_HEIGHT);
+
+      draw_line(frame, p1, p2);
+
+      imshow("Ballerburg", frame);
+      waitKey(0);
+      //_getch();
    }
 
    //cv::rectangle(frame, Point(50,50), Point(100,100), cv::Scalar(0, 255, 0), -1);
    int width = frame.cols;
    int height = frame.rows;
-   imshow("Ballerburg", frame);
-   waitKey(0);
+  
  
 }
