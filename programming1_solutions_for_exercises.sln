@@ -73,6 +73,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SuperClaus", "SuperClaus\Su
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ballerburg", "Ballerburg\Ballerburg.vcxproj", "{F3C934D7-C5B4-47B1-BD3E-5BDC32F9C377}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-Quiz", "C-Quiz\C-Quiz.vcxproj", "{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -361,6 +363,14 @@ Global
 		{F3C934D7-C5B4-47B1-BD3E-5BDC32F9C377}.Release|x64.Build.0 = Release|x64
 		{F3C934D7-C5B4-47B1-BD3E-5BDC32F9C377}.Release|x86.ActiveCfg = Release|Win32
 		{F3C934D7-C5B4-47B1-BD3E-5BDC32F9C377}.Release|x86.Build.0 = Release|Win32
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Debug|x64.ActiveCfg = Debug|x64
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Debug|x64.Build.0 = Debug|x64
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Debug|x86.Build.0 = Debug|Win32
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x64.ActiveCfg = Release|x64
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x64.Build.0 = Release|x64
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x86.ActiveCfg = Release|Win32
+		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
