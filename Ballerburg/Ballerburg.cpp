@@ -18,27 +18,29 @@ void draw_line(Mat frame, Point p1, Point p2)
    }
 }
 
+void draw_line(Mat frame, Point middle, int radius)
+{
+   double pi = 3.14159;
+   double epsilon = pi / 256.0;
+   for (double alpha = 0.0; alpha <= 2 * pi; alpha += epsilon)
+   {
+      double dx = cos(alpha);
+      double dy = sin(alpha);
+      Point p = middle + Point(dx*radius, dy*radius);
+      frame.at<Vec3b>(p) = Vec3b(0, 0, 255);
+   }
+}
+
 
 int main()
 {   
    Mat frame(PLAYFIELD_HEIGHT, PLAYFIELD_WIDTH, CV_8UC3);
   
+   draw_line(frame, Point(300, 300), 50);
 
-   for (int i = 1; i < 1000; i++)
-   {
-      Point p1(rand() % PLAYFIELD_WIDTH, rand() % PLAYFIELD_HEIGHT);
-      Point p2(rand() % PLAYFIELD_WIDTH, rand() % PLAYFIELD_HEIGHT);
-
-      draw_line(frame, p1, p2);
-
-      imshow("Ballerburg", frame);
-      waitKey(0);
-      //_getch();
-   }
-
-   //cv::rectangle(frame, Point(50,50), Point(100,100), cv::Scalar(0, 255, 0), -1);
-   int width = frame.cols;
-   int height = frame.rows;
+  imshow("Ballerburg", frame);
+  waitKey(0);
+  
   
  
 }
