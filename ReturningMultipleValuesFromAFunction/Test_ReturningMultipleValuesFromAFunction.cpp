@@ -15,6 +15,12 @@ std::tuple<int, int, int> divide2(int dividend, int divisor)
    return  { dividend / divisor, dividend % divisor, 123 };
 }
 
+
+std::tuple<int, std::string, float> create_a_tuple() {
+
+   return std::make_tuple(20, std::string("baz"), 1.2f);
+
+}
      
 int main()
 {
@@ -27,6 +33,14 @@ int main()
 
    auto result = divide2(14, 3);
    cout << std::get<0>(result) << ',' << std::get<1>(result) << endl;
+
+   int i;
+   std::string s;
+   float f;
+   std::tie(i, s, f) = create_a_tuple();
+   std::cout << "the int: " << i << "\n"
+      << "the string: " << s << "\n"
+      << "the float: " << f << "\n";
 
    _getwch();
 }
