@@ -75,6 +75,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ballerburg", "Ballerburg\Ba
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-Quiz", "C-Quiz\C-Quiz.vcxproj", "{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RangeBasedForLoop", "RangeBasedForLoop\RangeBasedForLoop.vcxproj", "{9B21B733-AF52-4263-BE7B-E647FE2E8173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -371,6 +373,14 @@ Global
 		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x64.Build.0 = Release|x64
 		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x86.ActiveCfg = Release|Win32
 		{AE16C693-EE43-487E-A8A8-988B8DE8EE0B}.Release|x86.Build.0 = Release|Win32
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Debug|x64.ActiveCfg = Debug|x64
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Debug|x64.Build.0 = Debug|x64
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Debug|x86.ActiveCfg = Debug|Win32
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Debug|x86.Build.0 = Debug|Win32
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Release|x64.ActiveCfg = Release|x64
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Release|x64.Build.0 = Release|x64
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Release|x86.ActiveCfg = Release|Win32
+		{9B21B733-AF52-4263-BE7B-E647FE2E8173}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
