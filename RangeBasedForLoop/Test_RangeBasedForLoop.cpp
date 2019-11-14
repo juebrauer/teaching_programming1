@@ -99,7 +99,7 @@ int main()
    
 
    printf("\nExample #9:\n");
-   std::map<std::string, int> m = { {"Kempten", 70210}, {"Muenchen", 1200399}, {"Hamburg", 903009} };
+   std::map<std::string, int> m = { {"Kempten", 70210}, {"Augsburg", 123}, {"Zürich", 456}, {"Muenchen", 1200399}, {"Hamburg", 903009} };
    for (auto pair : m)
    {
       printf("%s ", pair.first.c_str());

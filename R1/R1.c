@@ -6,6 +6,8 @@ int main()
 {
    while (1)
    {
+      srand(0);
+
       int lower;
       printf("Enter lower border: ");
       scanf_s("%d", &lower);
