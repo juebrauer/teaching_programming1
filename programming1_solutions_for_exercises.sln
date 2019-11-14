@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "G1", "G1\G1.vcxproj", "{B6E88769-96C8-4104-AFCE-4A70DCAF335B}"
 EndProject
@@ -78,6 +78,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RangeBasedForLoop", "RangeBasedForLoop\RangeBasedForLoop.vcxproj", "{9B21B733-AF52-4263-BE7B-E647FE2E8173}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReturningMultipleValuesFromAFunction", "ReturningMultipleValuesFromAFunction\ReturningMultipleValuesFromAFunction.vcxproj", "{A24196BD-1C3C-4B18-8534-56CFE605E5EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intro to CPP, WS 19", "Intro to CPP, WS 19", "{0F96002B-F4C1-4F96-B471-4C83F720E0E0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_cpp_class_definition", "01_cpp_class_definition\01_cpp_class_definition.vcxproj", "{5DC59916-8F41-446E-BBD0-32D9FABC1119}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -391,9 +395,20 @@ Global
 		{A24196BD-1C3C-4B18-8534-56CFE605E5EB}.Release|x64.Build.0 = Release|x64
 		{A24196BD-1C3C-4B18-8534-56CFE605E5EB}.Release|x86.ActiveCfg = Release|Win32
 		{A24196BD-1C3C-4B18-8534-56CFE605E5EB}.Release|x86.Build.0 = Release|Win32
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Debug|x64.ActiveCfg = Debug|x64
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Debug|x64.Build.0 = Debug|x64
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Debug|x86.ActiveCfg = Debug|Win32
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Debug|x86.Build.0 = Debug|Win32
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x64.ActiveCfg = Release|x64
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x64.Build.0 = Release|x64
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x86.ActiveCfg = Release|Win32
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DC59916-8F41-446E-BBD0-32D9FABC1119} = {0F96002B-F4C1-4F96-B471-4C83F720E0E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95C2CC5-01A9-482E-9FC0-2BD1FF0A4116}
