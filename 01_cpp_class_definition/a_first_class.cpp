@@ -1,5 +1,6 @@
 #include <string>
 #include <conio.h> // for function _getch()
+#include <vector>
 
 //using namespace std;
 
@@ -38,12 +39,19 @@ public:
    }
 
 
+   // with "=0" a method becomes a "pure virtual function"
+   virtual void fight() = 0
+   {
+      printf("Warrior %s: I just fight.\n", name.c_str());
+   }
+
    void show_infos()
    {
       printf("Warrior %s is currently at (%d,%d)\n",
               name.c_str(), x, y);
    }
   
+
 
    void set_position(int xpos, int ypos)
    {
@@ -68,7 +76,7 @@ public:
 #define NR_SPELLS 10
 
 
-class Wizard : public Warrior 
+class Wizard : public Warrior
 {
 private:
 
@@ -77,13 +85,9 @@ private:
 public:
    Wizard(std::string newname,
           int startposx,
-          int startposy)
+          int startposy) : Warrior(newname, startposx, startposy)
    {
       
-      name = newname;
-      x = startposx;
-      y = startposy;
-
       for (int i = 0; i < NR_SPELLS; i++)
       {
          spell[i] = false;
@@ -107,17 +111,74 @@ public:
       spell[spell_nr] = true;
    }
 
+   void fight()
+   {
+      printf("Wizard %s: I am a wizard and for this I conjure.\n",
+             name.c_str());
+   }
+
+};
+
+class Knight : public Warrior
+{
+public:
+   Knight(std::string newname,
+      int startposx,
+      int startposy) : Warrior(newname, startposx, startposy)
+   {
+      sword_length = 50;
+
+   }
+
+
+   void fight()
+   {
+      printf("Knight %s: I am a knight and I fight with my "
+             "sword which has length %d\n", name.c_str(), sword_length);
+   }
+
+private:
+   int sword_length;
+   int speed_horse;
+
 };
 
 int main()
 {
-   Warrior w1("Arragon", 100, 100);
-   w1.show_infos();
+   /*
+   std::vector<int> v;
 
-   Wizard z1("Gandalf", 200,200);
-   z1.learn_spell(7);
-   z1.conjure(7);
-   z1.show_infos();
+   int zahl;
+   do
+   {
+      printf("Bitte gib eine Zahl ein: ");
+      scanf_s("%d", &zahl);
+      v.push_back( zahl );
+   } while (zahl != 0);
+
+   for (int i = 0; i < v.size(); i++)
+      printf("%d.-te Zahl ist %d\n", i, v[i]);
+   */
+
+
+
+   
+   //Warrior* w1 = new Warrior("Arragon", 100, 100);
+   Wizard* z1 = new Wizard("Gandalf", 200,200);   
+   Knight* k1 = new Knight("Uwe", 50, 50);
+
+   std::vector<Warrior*> all_units;
+   //all_units.push_back(w1);
+   all_units.push_back(z1);
+   all_units.push_back(k1);
+
+   for (int i = 0; i < all_units.size(); i++)
+   {
+      Warrior* ptr = all_units[i];
+      ptr->fight();
+   }
+
+
 
    printf("Press a key to exit.\n");
    _getch();

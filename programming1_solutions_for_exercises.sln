@@ -83,6 +83,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intro to CPP, WS 19", "Intr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_cpp_class_definition", "01_cpp_class_definition\01_cpp_class_definition.vcxproj", "{5DC59916-8F41-446E-BBD0-32D9FABC1119}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_an_own_vector_class", "02_an_own_vector_class\02_an_own_vector_class.vcxproj", "{464733F1-D28A-4CB3-838D-1D5F505F8D07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -403,12 +405,21 @@ Global
 		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x64.Build.0 = Release|x64
 		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x86.ActiveCfg = Release|Win32
 		{5DC59916-8F41-446E-BBD0-32D9FABC1119}.Release|x86.Build.0 = Release|Win32
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Debug|x64.ActiveCfg = Debug|x64
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Debug|x64.Build.0 = Debug|x64
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Debug|x86.ActiveCfg = Debug|Win32
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Debug|x86.Build.0 = Debug|Win32
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Release|x64.ActiveCfg = Release|x64
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Release|x64.Build.0 = Release|x64
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Release|x86.ActiveCfg = Release|Win32
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5DC59916-8F41-446E-BBD0-32D9FABC1119} = {0F96002B-F4C1-4F96-B471-4C83F720E0E0}
+		{464733F1-D28A-4CB3-838D-1D5F505F8D07} = {0F96002B-F4C1-4F96-B471-4C83F720E0E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95C2CC5-01A9-482E-9FC0-2BD1FF0A4116}
