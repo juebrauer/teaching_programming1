@@ -70,8 +70,9 @@ int main()
    // we will not see 202 outputted by the following line,
    // because above we did not reassign the reference, but copied the value
    // of O2 to O1!
-   printf("value of O2 according to reference : %d\n", robj.get_value());
-   printf("value of O1 according to reference : %d\n", O1.get_value());
+   printf("value of O2 according to reference robj : %d\n", robj.get_value());
+   printf("value of O2: %d\n", O2.get_value());
+   printf("value of O1: %d\n", O1.get_value());
    printf("\n");
 
 
@@ -94,6 +95,30 @@ int main()
    // conclusion:
    // references are something like constant pointers which automatic
    // indirection, i.e. the compiler does the dereferencing * for us
+
+   // note:
+   // a reference is not the same as the object itself!
+   // there is a interesting discussion about this here:
+   // https://stackoverflow.com/questions/3224155/c-difference-between-reference-objects-and-pointers
+   // with the final conclusion:
+   // 
+   //  "A reference is essentially a synonym for another object.
+   //   Internally, it is often implemented as a pointer, but it has the
+   //   syntax as if it were the object it refers to.
+   // 
+   //   A pointer is a separate object that stores the memory address
+   //   of the object it points to (or 0 if it doesn't point to an object).
+   //
+   //   You could say that the reference is the object that it refers to
+   //   (it certainly acts that way), but it is not.
+   //   If a reference goes out of scope then the object it refers to is
+   //   not destructed, so the reference is not the object."
+   //
+   // and another quote from that discussion:
+   //
+   //  "A reference is syntactic sugar for a const pointer.
+   //   Just like a const pointer, it must be bound to an lvalue at
+   //   initialization, and can never be rebound."
    
    _getch();
 }
