@@ -40,7 +40,7 @@ public:
 
 
    // with "=0" a method becomes a "pure virtual function"
-   virtual void fight() = 0
+   virtual void fight()
    {
       printf("Warrior %s: I just fight.\n", name.c_str());
    }
@@ -136,6 +136,7 @@ public:
       printf("Knight %s: I am a knight and I fight with my "
              "sword which has length %d\n", name.c_str(), sword_length);
    }
+
 
 private:
    int sword_length;

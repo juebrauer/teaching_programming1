@@ -52,7 +52,7 @@ int main()
    A* pobj = &O1;
    A& robj = O1;
    printf("value of O1 according to pointer   : %d\n", pobj->get_value());
-   printf("value of O1 according to reference : %d\n", robj.get_value());
+   printf("value of O1 according to reference : %d\n", O1.get_value());
    printf("\n");
 
 
