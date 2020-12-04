@@ -24,4 +24,22 @@ int main()
 	}
 	printf("\n");
 	
+	
+	printf("Gimme another number: ");
+	int m;
+	scanf("%d", &m);
+	
+	int vla2[n][m];
+
+	int counter = 0;	
+	for (int y=0; y<n; y++)
+		for (int x=0; x<m; x++)
+			vla2[y][x] = counter++;
+	
+	for (int y=0; y<n; y++)
+	{
+		for (int x=0; x<m; x++)
+			printf("%d ", vla2[y][x]);
+		printf("\n");
+	}
 }
