@@ -3,6 +3,18 @@
 /// Simple example for testing whether your
 /// installation of the OpenCV library worked
 ///
+/// Install the OpenCV library with:
+///
+///     sudo apt install libopencv-dev
+///
+/// then compile this program with:
+///
+///   g++ opencv_test.cpp -o opencv_test `pkg-config --cflags --libs opencv4`
+///
+/// Note:
+/// -----
+/// If you have any problems to install OpenCV, you can also build it by your
+/// own from source code:
 ///
 /// First you need to download, build and install OpenCV for C++ development:
 /// See e.g. https://askubuntu.com/questions/1123955/install-opencv4-in-ubuntu-16
@@ -17,10 +29,6 @@
 /// - prepare the build: cmake ../
 /// - start the build: make (this will take a long time, ca. 60 minutes)
 /// - install the binaries just built: sudo make install
-///  
-/// Note: for compiling this example with g++ type in:
-///
-///   g++ opencv_test.cpp -o opencv_test `pkg-config --cflags --libs opencv4`
 ///
 /// ---
 /// by Prof. Dr.-Ing. Juergen Brauer, www.juergenbrauer.org
