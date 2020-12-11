@@ -20,7 +20,7 @@
 ///  
 /// Note: for compiling this example with g++ type in:
 ///
-///   g++ opencv_mini_test.cpp -o opencv_test `pkg-config --cflags --libs opencv4`
+///   g++ opencv_test.cpp -o opencv_test `pkg-config --cflags --libs opencv4`
 ///
 /// ---
 /// by Prof. Dr.-Ing. Juergen Brauer, www.juergenbrauer.org
