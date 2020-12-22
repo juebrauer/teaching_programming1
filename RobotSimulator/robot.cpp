@@ -3,32 +3,73 @@
 
 #include <opencv2/imgproc.hpp>
 
-robot::robot(int world_height, int world_width)
+robot::robot()
 {
     cout << "new robot created\n";
 
-    x = world_width/2;
-    y = world_height/2;
+    x = WORLD_WIDTH/2;
+    y = WORLD_HEIGHT/2;
+    theta = 0.0;    
 
-    dir_x = 0;
-    dir_y = 0;
+    color = Scalar(0,0,0);
 }
 
 
 void robot::draw(Mat img)
 {
-    circle(img, Point(x,y), ROBOT_RADIUS, ROBOT_COLOR);
+    circle(img, Point(x,y), ROBOT_RADIUS, color);
+
+    line(img,
+         Point(x,y),
+         Point(x+cos(theta)*ROBOT_RADIUS,y+sin(theta)*ROBOT_RADIUS),
+         color,
+         1);
 }
 
 
 void robot::move()
 {
-    if (rand() % 51 == 0)
-    {
-        dir_x = -1 + rand() % 3;
-        dir_y = -1 + rand() % 3;
-    }
+    cout << "robot::move() called.\n";
 
-    x += dir_x;
-    y += dir_y;
+    compute_new_orientation();
+
+    // update coordinates of robot
+    x += cos(theta);
+    y += sin(theta);
+
+    coordinates_check();    
+}
+
+
+void robot::compute_new_orientation()
+{
+    // from time to time change orientation
+    // of our robot randomly
+    if (rand() % 50 == 0)
+    {
+        // compute random orientation offset
+        double delta_theta = (-3 + rand() % 7) / (2*M_PI);
+        //cout << "double_theta = " << delta_theta << "\n";
+
+        // update orientation of robot
+        theta += delta_theta;
+    }    
+}
+
+
+
+void robot::coordinates_check()
+{
+    // make sure, the robot does not leave the world
+    if (x >= WORLD_WIDTH)
+        x = 0;
+
+    if (y >= WORLD_HEIGHT)
+        y = 0;
+
+    if (x < 0)
+        x = WORLD_WIDTH-1;
+
+    if ( y< 0)
+        y = WORLD_HEIGHT-1;
 }

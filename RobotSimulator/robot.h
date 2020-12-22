@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <opencv2/highgui.hpp>
 
@@ -6,21 +8,27 @@ using namespace cv;
 
 class robot
 {
+
     // access specifier
     public:
-                        robot(int world_height, int world_width);
+                            robot();
 
-                void    draw(Mat img);
+        virtual     void    move();
+    
+                    void    draw(Mat img);
 
-                void    move();
+    protected:
+
+        double          x;
+        double          y;
+        double          theta;      
+
+        // a color triplet (Blue, Green, Red)
+        Scalar          color;  
 
 
-    private:
+        void            compute_new_orientation();
 
-        int             x;
-        int             y;
-
-        int             dir_x;
-        int             dir_y;
+        void            coordinates_check();
     
 };
