@@ -11,6 +11,7 @@ robot::robot()
     y = WORLD_HEIGHT/2;
     theta = 0.0;    
 
+    // Black
     color = Scalar(0,0,0);
 }
 
@@ -19,11 +20,20 @@ void robot::draw(Mat img)
 {
     circle(img, Point(x,y), ROBOT_RADIUS, color);
 
+    // draw the robot's orientation as an oriented line
     line(img,
          Point(x,y),
          Point(x+cos(theta)*ROBOT_RADIUS,y+sin(theta)*ROBOT_RADIUS),
          color,
          1);
+
+    // draw the trajectory of this robot so far
+    for (long unsigned int i=0; i<trajectory.size(); i++)
+    {
+        Point p = trajectory[i];
+
+        circle(img, p, TRAJECTORY_POINT_RADIUS, TRAJECTORY_POINT_COLOR);
+    }
 }
 
 
@@ -70,6 +80,9 @@ void robot::coordinates_check()
     if (x < 0)
         x = WORLD_WIDTH-1;
 
-    if ( y< 0)
+    if (y< 0)
         y = WORLD_HEIGHT-1;
+
+    // store the new valid robot (x,y) coordinate
+    trajectory.push_back( Point(x,y) );
 }

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <opencv2/highgui.hpp>
 
+#include <vector>
+
 using namespace std;
 using namespace cv;
 
@@ -13,7 +15,12 @@ class robot
     public:
                             robot();
 
-        virtual     void    move();
+
+                            
+
+            // pure virtual function = rein virtuelle Funktioin
+
+            virtual void    move() = 0;
     
                     void    draw(Mat img);
 
@@ -21,8 +28,10 @@ class robot
 
         double          x;
         double          y;
-        double          theta;      
+        double          theta;
 
+        vector<Point>   trajectory;
+        
         // a color triplet (Blue, Green, Red)
         Scalar          color;  
 

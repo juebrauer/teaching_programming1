@@ -6,3 +6,6 @@
 
 #define ROBOT_RADIUS 20
 #define ROBOT_COLOR  Scalar(255,0,0)
+
+#define TRAJECTORY_POINT_RADIUS 3
+#define TRAJECTORY_POINT_COLOR  Scalar(128,128,128)

@@ -6,6 +6,7 @@ robot_slow::robot_slow()
 {
     cout << "new robot_slow created\n";
 
+    // Blue
     color = Scalar(255,0,0);
 }
 
@@ -13,7 +14,7 @@ robot_slow::robot_slow()
 void robot_slow::move()
 {
 
-    //cout << "robot_slow::move() called.\n";
+    cout << "robot_slow::move() called.\n";
 
     compute_new_orientation();
 

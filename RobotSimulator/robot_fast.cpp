@@ -6,14 +6,14 @@ robot_fast::robot_fast()
 {
     cout << "new robot_fast created\n";
 
-    
+    // Red
     color = Scalar(0,0,255);
 }
 
 
 void robot_fast::move()
-{
-    //cout << "robot_fast::move() called.\n";
+{    
+    cout << "robot_fast::move() called.\n";
 
     compute_new_orientation();
 
@@ -21,5 +21,5 @@ void robot_fast::move()
     x += 3*cos(theta);
     y += 3*sin(theta);
 
-    coordinates_check();       
+    coordinates_check();    
 }

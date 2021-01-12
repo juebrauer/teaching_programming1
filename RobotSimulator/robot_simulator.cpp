@@ -33,19 +33,34 @@ int main( int argc, char** argv )
     int nr_slow_robots;
     scanf("%d", &nr_slow_robots);
 
+
+
     vector<robot*> all_robots;
 
+    // create fast robots
     for (int i=0; i<nr_fast_robots; i++)
     {
         robot_fast* r1 = new robot_fast();
         all_robots.push_back( r1 );
     }
 
+    // create slow robots
     for (int i=0; i<nr_slow_robots; i++)
     {
         robot_slow* r2 = new robot_slow();
         all_robots.push_back( r2 );
     }
+
+    // create some "normal" robots
+    /*
+    for (int i=0; i<3; i++)
+    {
+        robot* r3 = new robot();
+        all_robots.push_back( r3 );
+    }
+    */
+
+
 
     // simulation loop:
     while (true)

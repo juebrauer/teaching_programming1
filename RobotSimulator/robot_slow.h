@@ -8,6 +8,6 @@ class robot_slow : public robot
 
                     robot_slow();
 
-            void    move()  override;
+            void    move();
 
 };
