@@ -5,7 +5,7 @@
 #define SOME_VALUE 42
 
 
-void gebe_array_aus_vla(int rows, int cols, char A[rows][cols])
+void show_array_vla(int rows, int cols, char A[rows][cols])
 {
    // A is a VLA, a Variable Length Array
    // see:
@@ -37,18 +37,17 @@ void gebe_array_aus_vla(int rows, int cols, char A[rows][cols])
 }
 
 
-void gebe_array_aus_ptr(char* A, int rows, int cols)
+void show_array_ptr(char* B, int rows, int cols)
 {
    
     for (int y=0; y<rows; y++)
     {
         for (int x=0; x<cols; x++)
         {
-            printf("%d ", A[y*cols+x] );
-            //printf("%d ", A[y][x] );
+            printf("%d ", B[y*cols+x] );
         }
         printf("\n");
-    }
+    }    
 }
 
 
@@ -69,8 +68,8 @@ int main() {
         for (int x=0; x<dimX; x++)
             C[y][x] = SOME_VALUE;
     }   
-    //gebe_array_aus_vla( dimY, dimX, C);
-    gebe_array_aus_ptr( (char*) C, dimY, dimX);
+    show_array_vla( dimY, dimX, C);
+    //show_array_ptr( (char*) C, dimY, dimX);
 
 
     printf("Finished!\n");
