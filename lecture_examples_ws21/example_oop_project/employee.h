@@ -14,6 +14,8 @@ class employee : public person
 
       double get_salary();
 
+      void do_something();
+
    private:
       double salary;
 

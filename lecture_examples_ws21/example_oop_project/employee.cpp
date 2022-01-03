@@ -11,3 +11,8 @@ double employee::get_salary()
 {
     return salary;
 }
+
+void employee::do_something()
+{
+    std::cout << "I am generating exams ..." << std::endl;
+}

@@ -38,3 +38,8 @@ bool person::set_first_name(std::string new_first_name)
     this->first_name = new_first_name;
     return true;
 }
+
+void person::do_something()
+{
+    std::cout << "I do something ..." << std::endl;
+}
