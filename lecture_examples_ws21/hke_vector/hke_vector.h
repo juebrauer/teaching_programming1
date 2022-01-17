@@ -15,6 +15,8 @@ class hke_vector
 
         int get_element(int idx);
 
+        void delete_element(int idx);
+
 
     private:
 

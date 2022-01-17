@@ -46,5 +46,24 @@ unsigned int hke_vector::size()
 
 int hke_vector::get_element(int idx)
 {
+    if ((idx<0) || (idx>=count))
+    {
+        std::cout << "Invalid index!\n";
+        return 0;
+    }
     return ptr_data[idx];
+}
+
+
+void hke_vector::delete_element(int idx)
+{
+    // 1. Verschieben der Elemente
+    for (int i=idx; i<count-1; i++)
+    {
+        ptr_data[i] = ptr_data[i+1];
+    }
+
+    // 2. Speicher kleiner machen
+    count--;    
+    ptr_data = (int*) realloc(ptr_data, count * sizeof(int));
 }
